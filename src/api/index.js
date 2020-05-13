@@ -6,12 +6,9 @@ import router from '@/router'
 // 添加请求拦截器
 axios.interceptors.request.use(
   config => {
-    // console.log(config);
     const token = store.state.token
     if (token) {
-      // console.log(token);
       config.headers.Authorization = token
-      // console.log(config);
     }
     return config
   },
@@ -22,7 +19,6 @@ axios.interceptors.request.use(
 // 添加响应拦截器
 axios.interceptors.response.use(
   response => {
-    // console.log(response);
     if (response.status === 200) {
       if (response.data.result.Code == '400') {
         router.push('/AccLogin')

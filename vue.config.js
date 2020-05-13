@@ -22,9 +22,9 @@ module.exports = {
   // 命令行 spy-debugger//真机模拟
   devServer: {
     open: true,
-    // host: 'localhost',
-    host: '192.168.9.107',
-    port: 8081,
+    host: 'localhost',
+    // host: '192.168.9.107',
+    port: 8082,
     https: false,
     proxy: {
       '/api': {

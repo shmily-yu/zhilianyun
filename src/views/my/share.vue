@@ -8,6 +8,7 @@
     <div class="img_box" v-show="!flag">
       <img :src="imgUrl" style="width:100%;height:100%" @load="shareLoad" />
     </div>
+    <div class="u-f-ajc save_tip">长按图片即可保存个人二维码</div>
 
     <!-- canvas -->
     <div id="canvas" v-show="flag"></div>
@@ -19,7 +20,7 @@
         <div class="u-f-ajc">
           <span class="number u-f-ajc">{{createcode}}</span>
         </div>
-        <div class="u-f-ajc word_two">好友可在注册时直接填写邀请码</div>
+        <div class="u-f-ajc word_two"></div>
         <div class="u-f-ajc">
           <div class="two_code">
             <img :src="code_url" @load="loading" />
@@ -30,7 +31,7 @@
             <img class="angle angle_four" src="../../assets/img/形状 987 拷贝 10.png" alt />
           </div>
         </div>
-        <div class="u-f-ajc word_three">长按图片即可保存个人二维码</div>
+        <div class="u-f-ajc word_three">扫描二维码完成邀请注册</div>
       </div>
     </div>
   </div>
@@ -39,7 +40,7 @@
 import html2canvas from "html2canvas";
 import { mapState } from "vuex";
 export default {
-  name:'share',
+  name: "share",
   data() {
     return {
       time: "",
@@ -61,7 +62,7 @@ export default {
     //后台返回来的二维码图片加载完成后，开始绘制canvas
     loading() {
       this.draw();
-      this.flag=false
+      this.flag = false;
     },
     //图片转换完成后，隐藏loading
     shareLoad() {
@@ -90,17 +91,17 @@ export default {
       let data = { mobile_phone: this.mobile_phone };
       this.api.getShare(data).then(res => {
         console.log(res);
-        if(res.data.result.Code=='200'){
+        if (res.data.result.Code == "200") {
           let obj = res.data.result.Response;
           this.createcode = obj.createcode;
           let image = obj.code_url; //要转成base64的图片
           this.img2base64(image, "Anonymous").then(res => {
             this.code_url = res;
           });
-        }else{
+        } else {
           this.$store.commit("hideLoading");
-          this.$toast('加载失败')
-          this.$router.push('/my')
+          this.$toast("加载失败");
+          this.$router.push("/my");
         }
       });
     },
@@ -118,8 +119,13 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.save_tip{
+  font-size: 2vh;
+  color: #ffffff;
+}
 .word_three {
-  padding: 2vh 0 0;
+
+  padding: 4vh 0 0;
   color: #6c6c6c;
   font-size: 14px;
 }
@@ -166,8 +172,8 @@ export default {
   left: 8px;
 }
 .img_box {
-  margin: 10vh 4vh 6vh;
-  height: 70vh;
+  margin: 8vh 4vh 6vh;
+  height: 68vh;
   border-radius: 20px;
   border: 7px solid #0081fa;
   img {
