@@ -5,7 +5,7 @@
         <van-icon name="arrow-left" size="22" color="#F3F3F7" @click="goback" />
       </template>
       <template #right>
-        <van-icon name="ellipsis" size="22" color="#F3F3F7" @click="share"/>
+        <van-icon name="ellipsis" size="22" color="#F3F3F7" @click="share" />
       </template>
     </van-nav-bar>
 
@@ -49,10 +49,7 @@
         </div>
         <div style="padding:0 4px;margin-right:14vh">
           <div class="u-f-ac" style="height:50%;font-size:18px;color:#0081FA">智联云</div>
-          <div
-            class="u-f-ac"
-            style="height:50%;color:rgba(196,196,196,1);font-size:14px"
-          >引领科技未来</div>
+          <div class="u-f-ac" style="height:50%;color:rgba(196,196,196,1);font-size:14px">引领科技未来</div>
         </div>
         <div class="u-f-ajc">
           <router-link :to="{name:'Signup', query: {createcode:this.$route.params.createcode}}">
@@ -88,8 +85,8 @@ export default {
   },
   methods: {
     // 分享
-    share(){
-       this.$toast('点击右上方分享');
+    share() {
+      this.$toast("点击右上方分享");
     },
     // 时间转换
     addtime(val) {
@@ -112,7 +109,7 @@ export default {
         createcode: this.$route.params.createcode
       };
       this.api.getDetailData(data).then(res => {
-        // console.log(res);
+        console.log(res);
         res = res.data.result;
         this.obj = res.Response.news_info;
         this.list = res.Response.rand_news;

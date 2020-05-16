@@ -20,7 +20,7 @@
                 >{{obj.true_name}}</div>
                 <div class="u-f-ajc" style="font-size:2vh;color:#ffffff">{{obj.mobile_phone}}</div>
               </div>
-              <div style="padding:8px 0;font-size:2vh;height:3vh;color:#ffffff">{{obj.intro}}</div>
+              <div style="padding:8px 0;font-size:2vh;height:3vh;color:#ffffff">{{obj.comp_name}}</div>
             </div>
           </div>
           <div>

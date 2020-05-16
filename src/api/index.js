@@ -121,5 +121,10 @@ export default class API {
     config.data = param;
     return axios.post(`${URL}/grtNews_search`, {}, config);
   }
+  //搜索
+  get_notice_id(param) {
+    config.data = param;
+    return axios.post(`${URL}/norcieinfo`, {}, config);
+  }
 
 }

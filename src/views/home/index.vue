@@ -21,7 +21,7 @@
         </van-swipe>
       </div>
       <!-- 公告 -->
-      <van-notice-bar :text="text" color="#FFFFFF" background="#1E1D21" left-icon="volume-o">
+      <van-notice-bar @click="showNotice" :text="text" color="#FFFFFF" background="#1E1D21" left-icon="volume-o">
         </van-notice-bar>
 
       <div class="news_head u-f u-f-jsb">
@@ -64,6 +64,7 @@ export default {
       images: [],
       text: "",
       list: [],
+      notice_id:'',
       loading: false,
       finished: false,
       refreshing: false
@@ -83,6 +84,9 @@ export default {
     }
   },
   methods: {
+    showNotice(){
+      this.$router.push({name:'noticeDetail',query:{id:this.notice_id}})
+    },
     //轮播图id处理
     getImgId(val) {
       return val.split("/").pop();
@@ -103,8 +107,10 @@ export default {
       let data = { mobile_phone: this.mobile_phone };
       this.api.getHome(data).then(res => {
         let obj = res.data.result.Response;
+        console.log(obj);
         this.images = obj.lunbos;
         this.text = obj.content_text;
+        this.notice_id=obj.notice_id
       });
     },
     onSearch(val) {

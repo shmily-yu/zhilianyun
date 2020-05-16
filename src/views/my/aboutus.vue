@@ -6,34 +6,34 @@
     <div class="u-f-ajc imgBox">
       <img class="img" src="../../assets/img/LOGO.png" />
     </div>
-    <div class="textBox" v-html="text"></div>
+    <div class="textBox u-f-ajc" v-html="text"></div>
   </div>
 </template>
 <script>
 import { mapState } from "vuex";
 export default {
-   computed: {
+  computed: {
     ...mapState(["mobile_phone"])
   },
   methods: {
-     onClickLeft() {
+    onClickLeft() {
       this.$router.push("/my");
     },
-    getData(){
-       let data = { mobile_phone: this.mobile_phone };
-      this.api.getAboutUs(data).then(res=>{
+    getData() {
+      let data = { mobile_phone: this.mobile_phone };
+      this.api.getAboutUs(data).then(res => {
         res = res.data.result;
-        this.text=res.Response;
-      })
+        console.log(res);
+        this.text = res.Response;
+      });
     }
-
   },
   mounted() {
-    this.getData()
+    this.getData();
   },
   data() {
     return {
-      text: ''
+      text: ""
     };
   }
 };
@@ -73,5 +73,14 @@ export default {
 .aboutus {
   height: 100vh;
   background: #252429;
+}
+
+// 修改v-html里面的内容
+.textBox {
+  flex-direction: column;
+}
+/deep/.textBox > p > img {
+  width: 100%;
+  height: 100%;
 }
 </style>

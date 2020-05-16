@@ -143,6 +143,15 @@ const routes = [
     }
   },
   {
+    path: '/noticeDetail',
+    name: 'noticeDetail',
+    component: () => import("../views/noticeDetail/noticeDetail.vue"),
+    meta: {
+      requireAuth: true,  // 该路由项需要权限校验
+    }
+  },
+
+  {
     path: '/404',
     name: '404',
     component: () => import('../views/404/notFound.vue')
