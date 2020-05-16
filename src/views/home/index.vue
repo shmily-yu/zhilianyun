@@ -21,7 +21,8 @@
         </van-swipe>
       </div>
       <!-- 公告 -->
-      <van-notice-bar color="#FFFFFF" background="#1E1D21" left-icon="volume-o">{{text}}</van-notice-bar>
+      <van-notice-bar :text="text" color="#FFFFFF" background="#1E1D21" left-icon="volume-o">
+        </van-notice-bar>
 
       <div class="news_head u-f u-f-jsb">
         <div style="position:relative">
