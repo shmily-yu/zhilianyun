@@ -78,6 +78,7 @@ export default {
       this.api.getUserInfo(data).then(res => {
         console.log(res);
         this.obj = res.data.result.Response;
+        
       });
     },
 

@@ -4,9 +4,9 @@
       <template #left>
         <van-icon name="arrow-left" size="22" color="#F3F3F7" @click="goback" />
       </template>
-      <template #right>
+      <!-- <template #right>
         <van-icon name="ellipsis" size="22" color="#F3F3F7" @click="share" />
-      </template>
+      </template>-->
     </van-nav-bar>
 
     <div class="title u-f-ajc">{{obj.title}}</div>

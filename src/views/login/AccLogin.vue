@@ -3,7 +3,7 @@
     <Logo :text="'登录'" />
     <van-form @submit="onSubmit" validate-first>
       <!-- 表单隐藏域 -->
-      <van-field style="display:none" v-model="form.login_type" name="get_type" type="hidden" />
+      <van-field style="display:none" v-model="form.get_type" name="get_type" type="hidden" />
       <van-field
         v-model="form.mobile_phone"
         name="mobile_phone"
@@ -52,7 +52,7 @@ export default {
       form: {
         mobile_phone: "",
         password: "",
-        login_type: 0
+        get_type: 0
       }
     };
   },
@@ -63,7 +63,6 @@ export default {
     }
   },
   mounted() {
-    // console.log(this.$route);
     if (this.$route.query.info == "exit") {
       this.clear_user_info();
     }
@@ -78,7 +77,7 @@ export default {
     clear_user_info() {
       localStorage.removeItem("token");
       sessionStorage.removeItem("mobile_phone");
-      this.form.mobile_phone=''
+      this.form.mobile_phone = "";
     },
     otherEnter() {
       this.$router.push({ name: "PhoneLogin" });
@@ -89,6 +88,7 @@ export default {
 
     onSubmit(data) {
       this.api.getLogin(data).then(res => {
+        console.log(res);
         if (res.data.result.Code == 200) {
           this.set_token(res.data.result.Response);
           this.set_mobile_phone(data.mobile_phone);

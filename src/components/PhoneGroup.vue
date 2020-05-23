@@ -36,7 +36,7 @@ export default {
     form: Object,
     ready: Boolean
   },
-   mounted() {
+  mounted() {
     console.log(this.ready);
   },
   data() {

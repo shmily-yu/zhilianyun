@@ -6,7 +6,7 @@
           <div class="u-f u-f-jsb" style="height:20%">
             <div class="u-f-ac" style="font-size:2vh;color:#6A6A6A">
               <van-icon name="eye-o" style="margin-right:6px" color="#6A6A6A" />
-              {{item.look}}
+              {{item.read_nums}}
             </div>
             <div class="u-f-ajc" style="font-size:2vh;color:#6A6A6A">{{addtime(item.add_time)}}</div>
           </div>
